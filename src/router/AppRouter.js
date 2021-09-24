@@ -24,6 +24,7 @@ const AppRouter = () => {
   const [rerender, setRerender] = useState(false)
   const [login, setLogin] = useState(false)
   const history = useHistory()
+  const [nav, setNav_] = useState(['', ''])
 
   useEffect(() => {
     api().then((res) => {
