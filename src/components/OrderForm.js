@@ -1,6 +1,5 @@
 import { useState, useLayoutEffect } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import { v4 as uuidv4, parse } from 'uuid'
 import Div from './Div'
 import { NavLink } from 'react-router-dom'
 import uID from '../controllers/uID'
@@ -20,7 +19,7 @@ const OrderForm = ({
       <Button
         className='icon-back'
         onClick={() => {
-          history.push('/')
+          history.goBack()
         }}></Button>,
       <Div Content={'ACCOUNT DETAILS'} />,
     ]

@@ -2,6 +2,7 @@ import { useEffect, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import OrderContext from '../context/OrderContext'
 import Div from '../components/Div'
+import Link from '../components/Link'
 
 const Dash = () => {
   const { setNav, setHead } = useContext(OrderContext)
@@ -16,43 +17,19 @@ const Dash = () => {
   return (
     <header>
       <div className='links'>
-        <NavLink
-          to='/login'
-          className='link icon-home'
-          activeClassName='active'
-          exact>
-          Home
-        </NavLink>
-        <NavLink
-          to='/add'
-          className='link icon-notepad '
-          activeClassName='active'>
-          Order entry
-        </NavLink>
-        <NavLink
-          to='/add'
-          className='link icon-notepad '
-          activeClassName='active'>
-          Receipt entry
-        </NavLink>
-        <NavLink to='/add' className='link icon-pad ' activeClassName='active'>
-          Order History
-        </NavLink>
-        <NavLink to='/add' className='link icon-pad ' activeClassName='active'>
-          Receipt History
-        </NavLink>
-        <NavLink
-          to='/add'
-          className='link icon-refresh '
-          activeClassName='active'>
-          Refresh Data
-        </NavLink>
-        <NavLink
-          to='/login'
-          className='link icon-power '
-          activeClassName='active'>
-          Logout
-        </NavLink>
+        <Link to='/login' Content='Home' Class='link icon-home' />
+
+        <Link to='/add' Class='link icon-notepad' Content='Order entry' />
+
+        <Link to='/add' Class='link icon-notepad ' Content='Receipt entry' />
+
+        <Link to='/add' Class='link icon-pad ' Content='Order history' />
+
+        <Link to='/add' Class='link icon-pad ' Content='Receipt history' />
+
+        <Link to='/add' Class='link icon-refresh ' Content='Refresh data' />
+
+        <Link to='/login' Class='link icon-power ' Content='Logout' />
       </div>
     </header>
   )
