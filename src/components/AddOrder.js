@@ -13,11 +13,11 @@ const AddOrder = ({ history }) => {
 
   return (
     <Fragment>
-      -
       <OrderForm
         handleOnSubmit={handleOnSubmit}
         setNav={setNav}
         setHead={setHead}
+        history={history}
       />
     </Fragment>
   )

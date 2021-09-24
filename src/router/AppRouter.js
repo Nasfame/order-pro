@@ -1,5 +1,10 @@
-import React, { createElement } from 'react'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import {
+  useHistory,
+  BrowserRouter,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
 import Dash from '../components/Dash'
@@ -10,14 +15,15 @@ import EditOrder from '../components/EditOrder'
 import OrderContext from '../context/OrderContext'
 import useLocalStorage from '../hooks/useLocalStorage'
 import api from '../api.js'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useLayoutEffect, Fragment } from 'react'
 
 const AppRouter = () => {
   const [orders, setOrders] = useLocalStorage('orders', [])
-  const navRef = useRef(['Order Pro', ''])
-  const headRef = useRef('')
+  const navRef = useRef(['', ''])
+  const headRef = useRef(['', ''])
   const [rerender, setRerender] = useState(false)
   const [login, setLogin] = useState(false)
+  const history = useHistory()
 
   useEffect(() => {
     api().then((res) => {
@@ -26,7 +32,7 @@ const AppRouter = () => {
         setOrders(data)
       }
     })
-    console.log('mount')
+    console.log('PIA')
   })
 
   const setNav = (nav) => {
@@ -41,6 +47,7 @@ const AppRouter = () => {
 
   const handleLogin = (user) => {
     setLogin(true)
+    history.push('/')
   }
 
   return (
@@ -50,7 +57,15 @@ const AppRouter = () => {
         <Header head={headRef.current} />
         <div className='main-content'>
           <OrderContext.Provider
-            value={{ orders, setOrders, api, setNav, setHead, handleLogin }}>
+            value={{
+              orders,
+              setOrders,
+              api,
+              setNav,
+              setHead,
+              handleLogin,
+              history,
+            }}>
             <Switch>
               <Route component={Dash} path='/' exact={true} />
               <Route component={AddOrder} path='/add' />

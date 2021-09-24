@@ -1,13 +1,10 @@
-import { useState, useEffect, useContext } from 'react'
-import OrderContext from '../context/OrderContext'
+import { useEffect, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-
-const Div = ({ Class }) => {
-  return <div className={Class}></div>
-}
+import OrderContext from '../context/OrderContext'
+import Div from './Div'
 
 const Dash = () => {
-  const { handleLogin, setNav, setHead } = useContext(OrderContext)
+  const { setNav, setHead } = useContext(OrderContext)
 
   useEffect(() => {
     let nav = [<Div Class='logo' />, 'Order Pro']
@@ -24,7 +21,6 @@ const Dash = () => {
           className='link icon-home'
           activeClassName='active'
           exact>
-          {/* <i class='bi bi-house px-4'></i> */}
           Home
         </NavLink>
         <NavLink

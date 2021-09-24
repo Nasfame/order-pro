@@ -1,25 +1,23 @@
 import { Form, Button } from 'react-bootstrap'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useLayoutEffect, useEffect, useContext } from 'react'
 import OrderContext from '../context/OrderContext'
-
-const Div = ({ Class }) => {
-  return <div className={Class}></div>
-}
+import Div from './Div'
 
 const LoginForm = () => {
   const { handleLogin, setNav, setHead } = useContext(OrderContext)
   const [errorMsg, setErrorMsg] = useState('')
   const [user, setUser] = useState({ username: '', password: '' })
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let nav = [
-      // <Form.Label className='logo'> </Form.Label>,
       <Div Class='logo' />,
-      'webinfosoftwares@gmail.com',
-      <Div />,
-      '9387303270',
+      <Div
+        Content='webinfosoftwares@gmail.com'
+        Class='container d-flex justify-content-center'
+      />,
+      <Div Content='9387303270' Class='d-flex' />,
     ]
-    let navbar = [nav, '']
+    let navbar = [nav, 'align-content-center']
     let heading = ['Welcome!', 'text-info,d-inline-flex']
 
     setNav(navbar)

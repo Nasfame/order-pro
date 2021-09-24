@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { v4 as uuidv4, parse } from 'uuid'
+import Div from './Div'
+import { NavLink } from 'react-router-dom'
 
 const uID = () => {
   let uuid = uuidv4()
@@ -10,22 +12,32 @@ const uID = () => {
   return randInt
 }
 
-const Icon = ({ className }) => {
-  return (
-    <span>
-      <i className={'icon ' + className}></i>
-    </span>
-  )
-}
-const OrderForm = ({ orderToEdit, handleOnSubmit, setNav, setHead }) => {
-  useEffect(() => {
-    let navbar = ['ACCOUNT DETAILS', 'h2 p-5']
+const OrderForm = ({
+  orderToEdit,
+  handleOnSubmit,
+  setNav,
+  setHead,
+  history,
+}) => {
+  useLayoutEffect(() => {
+    let nav = [
+      // <NavLink to='/' className='link' activeClassName='active'>
+      //   <Div Class={'icon-back'} />
+      // </NavLink>,
+      <Button
+        className='icon-back'
+        onClick={() => {
+          history.push('/')
+        }}></Button>,
+      <Div Content={'ACCOUNT DETAILS'} />,
+    ]
+    let navbar = [nav, 'justify-content-around h2 py-5']
     let heading = ['Heading', 'text-info,d-inline-flex,font-weight-bold']
     setNav(navbar)
     setHead(heading)
   })
 
-  let [order, setOrder] = useState(
+  const [order, setOrder] = useState(
     orderToEdit ?? {
       id: '',
       customerName: '',
@@ -47,7 +59,6 @@ const OrderForm = ({ orderToEdit, handleOnSubmit, setNav, setHead }) => {
     })
 
     if (allFieldsFilled) {
-      console.log(order)
       handleOnSubmit(order)
     } else errorMsg = 'Please fill out all the fields.'
 
