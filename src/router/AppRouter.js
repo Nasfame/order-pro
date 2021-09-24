@@ -2,6 +2,7 @@ import React, { createElement } from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
+import Dash from '../components/Dash'
 import LoginForm from '../components/LoginForm'
 import AddOrder from '../components/AddOrder'
 import OrderList from '../components/OrderList'
@@ -13,8 +14,7 @@ import { useEffect, useState, useRef } from 'react'
 
 const AppRouter = () => {
   const [orders, setOrders] = useLocalStorage('orders', [])
-  const [nav, setNav_] = useState(['Order Pro', ''])
-  const navRef = useRef(nav)
+  const navRef = useRef(['Order Pro', ''])
   const headRef = useRef('')
   const [rerender, setRerender] = useState(false)
   const [login, setLogin] = useState(false)
@@ -47,15 +47,16 @@ const AppRouter = () => {
     <BrowserRouter>
       <div>
         <Navbar nav={navRef.current} />
-        <Header head={headRef.current}/>
+        <Header head={headRef.current} />
         <div className='main-content'>
           <OrderContext.Provider
             value={{ orders, setOrders, api, setNav, setHead, handleLogin }}>
             <Switch>
-              <Route component={LoginForm} path='/' exact={true} />
+              <Route component={Dash} path='/' exact={true} />
               <Route component={AddOrder} path='/add' />
               <Route component={OrderList} path='/orders' />
               <Route component={EditOrder} path='/edit/:id' />
+              <Route component={LoginForm} path='/login' />
               <Route path='*' component={() => <Redirect to='/' />} />
             </Switch>
           </OrderContext.Provider>

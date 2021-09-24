@@ -3,18 +3,22 @@ import OrderContext from '../context/OrderContext'
 import OrderForm from './OrderForm'
 
 const AddOrder = ({ history }) => {
-  const { orders, setOrders, api, setNav } = useContext(OrderContext)
-  let content = 'Account Details'
-  let style = ''
+  const { orders, setOrders, api, setNav, setHead } = useContext(OrderContext)
+
   const handleOnSubmit = async (order) => {
     await setOrders([...orders, order])
     api('POST', order)
     history.push('/')
   }
-  useEffect(() => setNav([content, style]))
+
   return (
     <Fragment>
-      <OrderForm handleOnSubmit={handleOnSubmit} />
+      -
+      <OrderForm
+        handleOnSubmit={handleOnSubmit}
+        setNav={setNav}
+        setHead={setHead}
+      />
     </Fragment>
   )
 }

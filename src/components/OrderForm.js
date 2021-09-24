@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { v4 as uuidv4, parse } from 'uuid'
 
@@ -17,7 +17,14 @@ const Icon = ({ className }) => {
     </span>
   )
 }
-const OrderForm = ({ orderToEdit, handleOnSubmit, setNavbar }) => {
+const OrderForm = ({ orderToEdit, handleOnSubmit, setNav, setHead }) => {
+  useEffect(() => {
+    let navbar = ['ACCOUNT DETAILS', 'h2 p-5']
+    let heading = ['Heading', 'text-info,d-inline-flex,font-weight-bold']
+    setNav(navbar)
+    setHead(heading)
+  })
+
   let [order, setOrder] = useState(
     orderToEdit ?? {
       id: '',

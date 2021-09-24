@@ -1,19 +1,27 @@
 import { Form, Button } from 'react-bootstrap'
-import Card from 'react-bootstrap/Card'
-
 import { useState, useEffect, useContext } from 'react'
 import OrderContext from '../context/OrderContext'
+
+const Div = ({ Class }) => {
+  return <div className={Class}></div>
+}
 
 const LoginForm = () => {
   const { handleLogin, setNav, setHead } = useContext(OrderContext)
   const [errorMsg, setErrorMsg] = useState('')
   const [user, setUser] = useState({ username: '', password: '' })
-  let nav = ['webinfosoftwares@gmail.com', <p />, '9387303270']
-  let navbar = [nav, 'icon-login']
-  let heading = ['Welcome!', 'text-info,d-inline-flex']
-  console.log(setNav)
 
   useEffect(() => {
+    let nav = [
+      // <Form.Label className='logo'> </Form.Label>,
+      <Div Class='logo' />,
+      'webinfosoftwares@gmail.com',
+      <Div />,
+      '9387303270',
+    ]
+    let navbar = [nav, '']
+    let heading = ['Welcome!', 'text-info,d-inline-flex']
+
     setNav(navbar)
     setHead(heading)
   })
@@ -50,11 +58,10 @@ const LoginForm = () => {
         <Form.Group>
           <Form.Control
             className='icon-people input-control'
-            type='username'
             value={user.username}
             placeholder='Username'
             onChange={inputChange}
-            name='Username'
+            name='username'
           />
         </Form.Group>
         <Form.Group>
