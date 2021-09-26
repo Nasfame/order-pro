@@ -1,8 +1,6 @@
 import { useState, useLayoutEffect } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import Div from './Div'
-import { NavLink } from 'react-router-dom'
-import uID from '../controllers/uID'
 
 const OrderForm = ({
   orderToEdit,
@@ -19,12 +17,13 @@ const OrderForm = ({
       <Button
         className='icon-back'
         onClick={() => {
-          history.goBack()
+          history.push('/')
         }}></Button>,
-      <Div Content={'ACCOUNT DETAILS'} />,
+      <Div Content='ACCOUNT DETAILS' Class='' />,
+      <Div Content='' />,
     ]
-    let navbar = [nav, 'justify-content-around h2 py-5']
-    let heading = ['Heading', 'text-info,d-inline-flex,font-weight-bold']
+    let navbar = [nav, 'justify-content-between py-3']
+    let heading = ['Heading', 'font-weight-bold']
     setNav(navbar)
     setHead(heading)
   })
@@ -34,8 +33,10 @@ const OrderForm = ({
       id: '',
       customerName: '',
       customerDetails: '',
+      date: '',
       discount: '',
       amount: '',
+      time: '',
     },
   )
   const [errorMsg, setErrorMsg] = useState('')
@@ -121,7 +122,7 @@ const OrderForm = ({
         </Form.Group>
         <Form.Group>
           <Form.Label
-            className='icon-plus input-control py-2 px-3'
+            className='icon-plus input-control py-2 px-3 text-primary'
             // onClick = addProduct()
           >
             Add an item

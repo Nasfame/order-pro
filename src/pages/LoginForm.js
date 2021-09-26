@@ -2,24 +2,21 @@ import { Form, Button } from 'react-bootstrap'
 import { useState, useLayoutEffect, useEffect, useContext } from 'react'
 import OrderContext from '../context/OrderContext'
 import Div from '../components/Div'
+import refresh from '../controllers/refresh'
 
 const LoginForm = () => {
   const { handleLogin, setNav, setHead } = useContext(OrderContext)
   const [errorMsg, setErrorMsg] = useState('')
   const [user, setUser] = useState({ username: '', password: '' })
+  let nav = [
+    <Div Class='logo mx-5' />,
+    <Div Content='webinfosoftwares@gmail.com' Class='mx-5' />,
+    <Div Content='9387303270' Class='' />,
+  ]
+  let navbar = [nav, ' justify-content-center py-5']
+  let heading = ['Welcome!', 'text-primary']
 
   useLayoutEffect(() => {
-    let nav = [
-      <Div Class='logo' />,
-      <Div
-        Content='webinfosoftwares@gmail.com'
-        Class='container d-flex justify-content-center'
-      />,
-      <Div Content='9387303270' Class='d-flex' />,
-    ]
-    let navbar = [nav, 'align-content-center']
-    let heading = ['Welcome!', 'text-info,d-inline-flex']
-
     setNav(navbar)
     setHead(heading)
   })
@@ -48,7 +45,6 @@ const LoginForm = () => {
       [name]: value,
     }))
   }
-
   return (
     <div className='main-form'>
       {errorMsg && <p className='errorMsg'>{errorMsg}</p>}

@@ -1,21 +1,30 @@
 import {
   useHistory,
   BrowserRouter,
+  HashRouter,
   Switch,
   Route,
   Redirect,
+  StaticRouter,
 } from 'react-router-dom'
+import { useEffect, useState, useRef, useLayoutEffect, Fragment } from 'react'
+
+import OrderContext from '../context/OrderContext'
+import useLocalStorage from '../hooks/useLocalStorage'
+import api from '../api.js'
+
+import Base from '../components/Base'
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
+
 import Dash from '../pages/Dash'
 import LoginForm from '../pages/LoginForm'
 import AddOrder from '../pages/AddOrder'
 import OrderList from '../pages/OrderList'
 import EditOrder from '../pages/EditOrder'
-import OrderContext from '../context/OrderContext'
-import useLocalStorage from '../hooks/useLocalStorage'
-import api from '../api.js'
-import { useEffect, useState, useRef, useLayoutEffect, Fragment } from 'react'
+
+import { createBrowserHistory } from 'history'
+import history from '../hooks/history'
 
 const AppRouter = () => {
   const [orders, setOrders] = useLocalStorage('orders', [])
@@ -23,7 +32,7 @@ const AppRouter = () => {
   const headRef = useRef(['', ''])
   const [rerender, setRerender] = useState(false)
   const [login, setLogin] = useState(false)
-  const history = useHistory()
+  // const history = useHistory()
   const [nav, setNav_] = useState(['', ''])
 
   useEffect(() => {
@@ -38,7 +47,7 @@ const AppRouter = () => {
 
   const setNav = (nav) => {
     navRef.current = nav
-    setRerender(true) // setOrders()
+    setRerender(true)
   }
 
   const setHead = (head) => {
@@ -48,12 +57,13 @@ const AppRouter = () => {
 
   const handleLogin = (user) => {
     setLogin(true)
-    history.push('/')
+    // history.push('/')
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter forceRefresh={true} history={history}>
       <div>
+        {/* <Base /> */}
         <Navbar nav={navRef.current} />
         <Header head={headRef.current} />
         <div className='main-content'>

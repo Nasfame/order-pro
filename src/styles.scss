@@ -1,19 +1,17 @@
-.nav {
+.navBar {
   min-height: 10%;
-  align-items: center;
+  display: flex;
   margin-bottom: 20px;
-  justify-content: center;
+  padding-top: 0%;
 }
 
 .logo {
-  line-height: 1.3333333;
   display: flex;
-  margin-bottom: 10px;
-  padding: 50px;
-  width: 100%;
-  background-color: inherit;
+  padding: 2rem;
+  border-radius: 1.68em;
   background-image: url('icons/logo.png');
   background-position: center;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -27,38 +25,44 @@ body {
   background: white;
   font-family: Noto Sans, Helvetica, sans-serif;
   color: white;
-  letter-spacing: 1px;
-  // padding: 10px;
   min-height: 100vh;
 }
 
 header {
   text-align: center;
   margin: 10px 0 10px 0;
+  min-width: 100vw;
+  color: black;
 
   .links {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 
     .link {
-      padding: 5px 10px;
+      padding: 0.5rem 2rem;
+      font: 1em sans-serif;
       font-weight: bold;
       margin: 1rem;
-      color: black;
       text-decoration: none;
+      background-position: 1rem;
+      color: black;
     }
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   h1 {
     font-size: 30px;
   }
 
   header {
     .links {
+      margin-bottom: 20px;
+      margin-top: 0;
+      display: flex;
+      flex-direction: column;
+      text-align: start;
       a {
         font-size: 1.2rem;
         width: 100%;
@@ -88,8 +92,7 @@ h1 {
 }
 
 .main-content {
-  width: 80%;
-  margin: auto auto 100px auto;
+  width: 90%;
 }
 
 .main {
@@ -120,6 +123,7 @@ h1 {
 
   .order-details {
     margin-bottom: 1rem;
+    color: red;
 
     & > div {
       margin-bottom: 0.5rem;
@@ -153,10 +157,6 @@ h1 {
       0 0 8px rgba(23, 24, 24, 0.6);
     border: 1px solid #cecece;
   }
-}
-
-button {
-  margin-right: 5px;
 }
 
 .submit-btn {
@@ -211,12 +211,8 @@ button {
   background-repeat: no-repeat;
   padding: 20px 15px 20px 20px;
   text-indent: 32px;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 2s;
   transition: all 0.2s;
   background-size: 1em;
-
-  -webkit-mask-size: cover;
   mask-size: cover;
 }
 
@@ -226,8 +222,8 @@ button {
 
 .icon-time {
   // @include icon('time.svg');
-  padding: 0;
   flex-direction: row-reverse;
+  padding: 0;
 }
 
 .icon-people {
@@ -272,4 +268,8 @@ button {
 
 .icon-power {
   @include icon('power.svg');
+}
+
+.icon-list {
+  @include icon('list.svg');
 }
