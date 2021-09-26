@@ -1,9 +1,9 @@
-import { Fragment, useContext, useEffect } from 'react'
-import OrderContext from '../context/OrderContext'
-import OrderForm from '../components/OrderForm'
+import { useContext, useEffect } from 'react'
+import { OrderContext } from '../context'
+import { OrderForm } from '../components'
 
 const AddOrder = ({ history }) => {
-  const { orders, setOrders, api, setNav, setHead } = useContext(OrderContext)
+  const { orders, setOrders, api } = useContext(OrderContext)
 
   const handleOnSubmit = async (order) => {
     await setOrders([...orders, order])
@@ -12,14 +12,9 @@ const AddOrder = ({ history }) => {
   }
 
   return (
-    <Fragment>
-      <OrderForm
-        handleOnSubmit={handleOnSubmit}
-        setNav={setNav}
-        setHead={setHead}
-        history={history}
-      />
-    </Fragment>
+    <>
+      <OrderForm handleOnSubmit={handleOnSubmit} history={history} />
+    </>
   )
 }
 

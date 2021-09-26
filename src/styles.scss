@@ -1,24 +1,10 @@
+@import 'icons';
+
 .navBar {
   min-height: 10%;
   display: flex;
   margin-bottom: 20px;
   padding-top: 0%;
-}
-
-.logo {
-  display: flex;
-  padding: 2rem;
-  border-radius: 1.68em;
-  background-image: url('icons/logo.png');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.icon-back {
-  padding: 8px;
-  background-image: url('icons/back.svg');
-  background-repeat: no-repeat;
 }
 
 body {
@@ -33,21 +19,23 @@ header {
   margin: 10px 0 10px 0;
   min-width: 100vw;
   color: black;
+}
 
-  .links {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
+.links {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 
-    .link {
-      padding: 0.5rem 2rem;
-      font: 1em sans-serif;
-      font-weight: bold;
-      margin: 1rem;
-      text-decoration: none;
-      background-position: 1rem;
-      color: black;
-    }
+  .link {
+    padding: 0.5rem 2rem;
+    font: 1em sans-serif;
+    font-weight: bold;
+    margin: 1rem;
+    text-decoration: none;
+    background-position: 1rem;
+    min-width: 100%;
+    color: black;
+    text-align: start;
   }
 }
 
@@ -55,27 +43,25 @@ header {
   h1 {
     font-size: 30px;
   }
+  .links {
+    min-width: 100%;
+    margin-bottom: 20px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    // text-align: start;
+    // a {
+    //   font-size: 1.2rem;
+    //   width: 100%;
+    // }
 
-  header {
-    .links {
-      margin-bottom: 20px;
-      margin-top: 0;
-      display: flex;
-      flex-direction: column;
-      text-align: start;
-      a {
-        font-size: 1.2rem;
-        width: 100%;
-      }
-
-      .link:link,
-      .link:visited {
-        margin: unset;
-      }
-      .link:active {
-        background-color: whitesmoke;
-        color: skyblue;
-      }
+    .link:link,
+    .link:visited {
+      margin: unset;
+    }
+    .link:active {
+      background-color: whitesmoke;
+      color: skyblue;
     }
   }
 
@@ -92,7 +78,7 @@ h1 {
 }
 
 .main-content {
-  width: 90%;
+  width: 100%;
 }
 
 .main {
@@ -205,71 +191,7 @@ h1 {
   background-color: whitesmoke;
 }
 
-@mixin icon($icon) {
-  background-image: url('icons/'+$icon);
-  background-position: 2px center;
-  background-repeat: no-repeat;
-  padding: 20px 15px 20px 20px;
-  text-indent: 32px;
-  transition: all 0.2s;
-  background-size: 1em;
-  mask-size: cover;
-}
-
-.icon-menu {
-  @include icon('menu.svg');
-}
-
-.icon-time {
-  // @include icon('time.svg');
-  flex-direction: row-reverse;
-  padding: 0;
-}
-
-.icon-people {
-  @include icon('people.svg');
-}
-
-.icon-hamburger {
-  @include icon('hamburger.svg');
-}
-
-.icon-plus {
-  @include icon('plus.svg');
-}
-
-.icon-discount {
-  @include icon('price_tag.svg');
-}
-
-.icon-amount {
-  @include icon('amount.svg');
-}
-
-.icon-password {
-  @include icon('password.svg');
-}
-
-.icon-home {
-  @include icon('home.svg');
-}
-
-.icon-notepad {
-  @include icon('notepad.svg');
-}
-
-.icon-pad {
-  @include icon('pad.svg');
-}
-
-.icon-refresh {
-  @include icon('refresh.svg');
-}
-
-.icon-power {
-  @include icon('power.svg');
-}
-
-.icon-list {
-  @include icon('list.svg');
+.side-bar {
+  max-width: 60%;
+  overflow: visible;
 }

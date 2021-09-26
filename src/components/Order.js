@@ -1,5 +1,6 @@
 import { Button, Card } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
+import { Div } from '.'
 
 const Order = ({ order, handleRemoveOrder }) => {
   const history = useHistory()
@@ -8,15 +9,15 @@ const Order = ({ order, handleRemoveOrder }) => {
     <Card style={{ width: '18rem' }} className='order'>
       <Card.Body>
         <Card.Title className='order-title'>{id}</Card.Title>
-        <div className='order-details'>
-          <div>{customerName}</div>
-          <div>{date}</div>
+        <Div Class='order-details'>
+          <Div>{customerName}</Div>
+          <Div>{date}</Div>
           <Button
             className='icon-back'
             onClick={() => {
               history.goBack()
             }}></Button>
-        </div>
+        </Div>
         {/* <Button variant='primary' onClick={() => history.push(`/edit/${id}`)}>
           Edit
         </Button>{' '} */}

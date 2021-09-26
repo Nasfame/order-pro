@@ -1,41 +1,46 @@
-import { Fragment, useContext, useEffect, useLayoutEffect } from 'react'
+import { useContext, useState } from 'react'
 import _ from 'lodash'
-import Order from '../components/Order'
-import OrderContext from '../context/OrderContext'
-import Div from '../components/Div'
-import Link from '../components/Link'
+import { OrderContext } from '../context'
+
+import { Div, Link, Nav, Order, Dash } from '../components'
 import { Button } from 'react-bootstrap'
-import refresh from '../controllers/refresh'
 
 const OrderList = (history) => {
-  const { orders, setOrders, api, setNav, setHead } = useContext(OrderContext)
+  const { orders, setOrders, api } = useContext(OrderContext)
+  const [sidebar, setSidebar] = useState(false)
 
-  useEffect(() => {
-    let punchOut = <Link Class='text-light ' to='/login' Content='PUNCH OUT' />
-    let nav = [
-      <Link Class='icon-list' />,
-      <Div
-        Content={punchOut}
-        Class='rounded border-white bg-danger px-4 py-2 mx-3'
-      />,
-    ]
-    let navbar = [nav, 'justify-content-between ']
-    let heading = []
-    setNav(navbar)
-    setHead(heading)
-    refresh(10)
-  })
+  const showSidebar = () => setSidebar(!sidebar)
 
+  const handler = () => {
+    console.log('sdds')
+  }
   return (
-    <Fragment>
-      <div className='order-list'>
+    <>
+      <Dash Class='side-bar' />
+      <Nav Class='justify-content-between'>
+        {/* <Link Class='icon-list' /> */}
+        <Button
+          variant='default'
+          type='submit'
+          className='icon-list'
+          onClick={handler}
+        />
+
+        <Link
+          Class='text-light border-white rounded px-4 py-1 mx-3 my-2'
+          to='/login'>
+          PUNCH OUT
+        </Link>
+      </Nav>
+
+      <Div Class='order-list'>
         {!_.isEmpty(orders) ? (
           orders.map((order) => <Order key={order.id} order={order} />)
         ) : (
-          <p className='message'>No Orders Yet</p>
+          <Div Class='message'>No Orders Yet</Div>
         )}
-      </div>
-    </Fragment>
+      </Div>
+    </>
   )
 }
 

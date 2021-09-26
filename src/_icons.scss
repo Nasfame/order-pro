@@ -1,0 +1,84 @@
+.logo {
+  display: flex;
+  padding: 2rem;
+  border-radius: 1.68em;
+  background-image: url('icons/logo.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.icon-back {
+  padding: 8px;
+  background-image: url('icons/back.svg');
+  background-repeat: no-repeat;
+}
+
+@mixin icon($icon) {
+  background-image: url('icons/'+$icon);
+  background-position: 2px center;
+  background-repeat: no-repeat;
+  padding: 20px 15px 20px 20px;
+  text-indent: 32px;
+  transition: all 0.2s;
+  background-size: 1em;
+  mask-size: cover;
+}
+
+.icon-menu {
+  @include icon('menu.svg');
+}
+
+.icon-time {
+  // @include icon('time.svg');
+  flex-direction: row-reverse;
+  padding: 0;
+}
+
+.icon-people {
+  @include icon('people.svg');
+}
+
+.icon-hamburger {
+  @include icon('hamburger.svg');
+}
+
+.icon-plus {
+  @include icon('plus.svg');
+}
+
+.icon-discount {
+  @include icon('price_tag.svg');
+}
+
+.icon-amount {
+  @include icon('amount.svg');
+}
+
+.icon-password {
+  @include icon('password.svg');
+}
+
+.icon-home {
+  @include icon('home.svg');
+}
+
+.icon-notepad {
+  @include icon('notepad.svg');
+}
+
+.icon-pad {
+  @include icon('pad.svg');
+}
+
+.icon-refresh {
+  @include icon('refresh.svg');
+}
+
+.icon-power {
+  @include icon('power.svg');
+}
+
+.icon-list {
+  @include icon('list.svg');
+}

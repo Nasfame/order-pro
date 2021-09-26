@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import AppRouter from './router/AppRouter'
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import 'bootstrap-icons/font/bootstrap-icons.css'
-import './styles.css'
+import './styles.scss'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(<AppRouter />, document.getElementById('root'))

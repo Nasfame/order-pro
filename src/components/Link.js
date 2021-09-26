@@ -1,21 +1,20 @@
-import { Form, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import LinkContext from '../context/LinkContext'
 import { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
-// import { navigate } from '@reach/router'
 
-const Link = ({ Class, Content, to, onClick }) => {
-  // const { history } = useContext(LinkContext)
+const Link = ({ Class, to, children }) => {
+  const { history } = useContext(LinkContext)
+
   let handler = () => console.log('Link')
-  let handle = onClick ?? handler
-  let link = to ?? ''
+  let handle = history ? () => history.push(to) : handler
   return (
-    <NavLink
+    <Button
+      variant='default'
+      type='submit'
       className={'text-decoration-none ' + Class}
-      to={link}
       onClick={handle}>
-      {Content}
-    </NavLink>
+      {children}
+    </Button>
   )
 }
 
