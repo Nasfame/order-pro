@@ -193,5 +193,14 @@ h1 {
 
 .side-bar {
   max-width: 60%;
-  overflow: visible;
+  position: relative;
+  opacity: 1;
+}
+
+// .wrapper {
+//   position: relative;
+// }
+
+.orders {
+  position: absolute;
 }

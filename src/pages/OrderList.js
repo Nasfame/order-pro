@@ -5,20 +5,12 @@ import { OrderContext } from '../context'
 import { Div, Link, Nav, Order, Dash } from '../components'
 import { Button } from 'react-bootstrap'
 
-const OrderList = (history) => {
-  const { orders, setOrders, api } = useContext(OrderContext)
-  const [sidebar, setSidebar] = useState(false)
+const Orders = ({ history, Class }) => {
+  const { orders, setOrders, api, handler } = useContext(OrderContext)
 
-  const showSidebar = () => setSidebar(!sidebar)
-
-  const handler = () => {
-    console.log('sdds')
-  }
   return (
-    <>
-      <Dash Class='side-bar' />
+    <Div Class={Class}>
       <Nav Class='justify-content-between'>
-        {/* <Link Class='icon-list' /> */}
         <Button
           variant='default'
           type='submit'
@@ -40,6 +32,22 @@ const OrderList = (history) => {
           <Div Class='message'>No Orders Yet</Div>
         )}
       </Div>
+    </Div>
+  )
+}
+
+const OrderList = (history) => {
+  const [sidebar, setSidebar] = useState(false)
+
+  const showSidebar = () => setSidebar(!sidebar)
+
+  const handler = () => {
+    console.log('sdds')
+  }
+  return (
+    <>
+      <Orders history={history} Class='orders' />
+      <Dash Class='side-bar' />
     </>
   )
 }
