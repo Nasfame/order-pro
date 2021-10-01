@@ -41,6 +41,7 @@
 
 .icon-hamburger {
   @include icon('hamburger.svg');
+  background-size: auto;
 }
 
 .icon-plus {

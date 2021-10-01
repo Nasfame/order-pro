@@ -47,7 +47,7 @@ const OrderForm = ({ orderToEdit, handleOnSubmit, history }) => {
         <Button
           className='icon-back'
           onClick={() => {
-            history.push('/')
+            history.goBack()
           }}></Button>
         <Div>ACCOUNT DETAILS</Div>
         <Div />

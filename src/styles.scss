@@ -49,11 +49,6 @@ header {
     margin-top: 0;
     display: flex;
     flex-direction: column;
-    // text-align: start;
-    // a {
-    //   font-size: 1.2rem;
-    //   width: 100%;
-    // }
 
     .link:link,
     .link:visited {
@@ -99,17 +94,21 @@ h1 {
 }
 
 .order {
-  margin: 10px;
-  width: 288px;
+  min-width: 20rem;
+  max-width: fit-content;
+  min-height: fit-content;
+  max-height: fit-content;
   overflow: hidden;
+  max-height: fit-content;
+  color: grey;
 
   .order-title {
     font-weight: bold;
   }
 
   .order-details {
-    margin-bottom: 1rem;
-    color: red;
+    color: grey;
+    margin-top: 0;
 
     & > div {
       margin-bottom: 0.5rem;
@@ -120,7 +119,6 @@ h1 {
 .main-form {
   color: #222222;
   font-size: 18px;
-  width: 70%;
   margin: auto;
 }
 
@@ -191,16 +189,17 @@ h1 {
   background-color: whitesmoke;
 }
 
-.side-bar {
-  max-width: 60%;
-  position: relative;
-  opacity: 1;
+#side-bar {
+  max-width: max-content;
 }
 
-// .wrapper {
-//   position: relative;
-// }
+.dropdown-toggle::after {
+  display: none;
+}
 
-.orders {
-  position: absolute;
+// Does not create the dropdown
+*,
+:before,
+:after {
+  transform: none !important;
 }

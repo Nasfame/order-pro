@@ -3,23 +3,17 @@ import _ from 'lodash'
 import { OrderContext } from '../context'
 
 import { Div, Link, Nav, Order, Dash } from '../components'
-import { Button } from 'react-bootstrap'
+import { Button, Navbar } from 'react-bootstrap'
 
-const Orders = ({ history, Class }) => {
+const OrderList = ({ history }) => {
   const { orders, setOrders, api, handler } = useContext(OrderContext)
 
   return (
-    <Div Class={Class}>
-      <Nav Class='justify-content-between'>
-        <Button
-          variant='default'
-          type='submit'
-          className='icon-list'
-          onClick={handler}
-        />
-
+    <Div Class='orders'>
+      <Nav>
+        <Dash Id='side-bar' Class='m-0 p-0' />
         <Link
-          Class='text-light border-white rounded px-4 py-1 mx-3 my-2'
+          Class='text-light border-white rounded px-4 py-1 mx-1 my-2'
           to='/login'>
           PUNCH OUT
         </Link>
@@ -33,22 +27,6 @@ const Orders = ({ history, Class }) => {
         )}
       </Div>
     </Div>
-  )
-}
-
-const OrderList = (history) => {
-  const [sidebar, setSidebar] = useState(false)
-
-  const showSidebar = () => setSidebar(!sidebar)
-
-  const handler = () => {
-    console.log('sdds')
-  }
-  return (
-    <>
-      <Orders history={history} Class='orders' />
-      <Dash Class='side-bar' />
-    </>
   )
 }
 

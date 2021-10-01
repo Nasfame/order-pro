@@ -1,14 +1,5 @@
-import {
-  useHistory,
-  BrowserRouter,
-  HashRouter,
-  Switch,
-  Route,
-  Redirect,
-  StaticRouter,
-  Router,
-} from 'react-router-dom'
-import { useEffect, useState, useRef, useLayoutEffect, Fragment } from 'react'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 import { OrderContext } from '../context'
 import { api } from '../controllers'
@@ -16,7 +7,7 @@ import { api } from '../controllers'
 import { LoginForm, AddOrder, OrderList, EditOrder } from '../pages'
 import { Div, Dash } from '../components'
 
-import { history, useLocalStorage } from '../hooks'
+import { useLocalStorage } from '../hooks'
 
 const AppRouter = () => {
   const [orders, setOrders] = useLocalStorage('orders', [])
@@ -32,14 +23,17 @@ const AppRouter = () => {
     console.log('PIA')
   })
 
-  const handleLogin = (user) => {
-    setLogin(true)
-    // history.push('/')
+  const handleLogin = (user, history) => {
+    const { username, password } = user
+    if (username == 'admin' && password == 'admin') {
+      setLogin(true)
+      history.push('/orders')
+    }
   }
 
   return (
-    <Router forceRefresh={true} history={history}>
-      <Div>
+    <BrowserRouter>
+      <>
         <Div Class='main-content'>
           <OrderContext.Provider
             value={{
@@ -49,7 +43,7 @@ const AppRouter = () => {
               handleLogin,
             }}>
             <Switch>
-              <Route component={Dash} path='/' exact={true} />
+              <Route component={LoginForm} path='/' exact={true} />
               <Route component={AddOrder} path='/add' />
               <Route component={OrderList} path='/orders' />
               <Route component={EditOrder} path='/edit/:id' />
@@ -58,8 +52,8 @@ const AppRouter = () => {
             </Switch>
           </OrderContext.Provider>
         </Div>
-      </Div>
-    </Router>
+      </>
+    </BrowserRouter>
   )
 }
 

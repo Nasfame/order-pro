@@ -1,16 +1,14 @@
 import { Button } from 'react-bootstrap'
-import LinkContext from '../context/LinkContext'
-import { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 
 const Link = ({ Class, to, children }) => {
-  const { history } = useContext(LinkContext)
+  const history = useHistory()
 
   let handler = () => console.log('Link')
-  let handle = history ? () => history.push(to) : handler
+  let handle = () => history.push(to)
   return (
     <Button
       variant='default'
-      type='submit'
       className={'text-decoration-none ' + Class}
       onClick={handle}>
       {children}

@@ -3,7 +3,7 @@ import { useState, useContext } from 'react'
 import { OrderContext } from '../context'
 import { Div, Nav, Header } from '../components'
 
-const LoginForm = () => {
+const LoginForm = ({ history }) => {
   const { handleLogin } = useContext(OrderContext)
   const [errorMsg, setErrorMsg] = useState('')
   const [user, setUser] = useState({ username: '', password: '' })
@@ -20,7 +20,8 @@ const LoginForm = () => {
 
     if (allFieldsFilled) {
       console.log(user)
-      handleLogin(user)
+      handleLogin(user, history)
+      setUser({ username: '', password: '' })
     } else errorMsg = 'Please fill out all the fields.'
     setErrorMsg(errorMsg)
   }

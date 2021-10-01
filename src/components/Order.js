@@ -1,23 +1,20 @@
 import { Button, Card } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
-import { Div } from '.'
+import { Div, Link } from '.'
 
 const Order = ({ order, handleRemoveOrder }) => {
   const history = useHistory()
   const { id, time, date, customerName, customerDetails } = order
   return (
-    <Card style={{ width: '18rem' }} className='order'>
-      <Card.Body>
-        <Card.Title className='order-title'>{id}</Card.Title>
-        <Div Class='order-details'>
-          <Div>{customerName}</Div>
-          <Div>{date}</Div>
-          <Button
-            className='icon-back'
-            onClick={() => {
-              history.goBack()
-            }}></Button>
+    <Card className='order text-nowrap mb-2 mx-2'>
+      <Card.Body className='order-details'>
+        <Div Class='d-flex justify-content-between'>
+          <Card.Text className='d-inline'>{customerName}</Card.Text>
+          <Link Class='text-primary d-inline' to='/login'>
+            <b>View</b>
+          </Link>
         </Div>
+        <Card.Text>{customerDetails}</Card.Text>
         {/* <Button variant='primary' onClick={() => history.push(`/edit/${id}`)}>
           Edit
         </Button>{' '} */}

@@ -1,5 +1,9 @@
-const Div = ({ Class, children }) => {
-  return <div className={Class}>{children}</div>
+const Div = ({ Class, Id, children }) => {
+  return (
+    <div className={Class} id={Id}>
+      {children}
+    </div>
+  )
 }
 
 export default Div
