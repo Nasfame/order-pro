@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Nasfame/order-pro/static/css/main.41aafe91.chunk.css",
-    "main.js": "/Nasfame/order-pro/static/js/main.01a7e492.chunk.js",
-    "main.js.map": "/Nasfame/order-pro/static/js/main.01a7e492.chunk.js.map",
-    "runtime-main.js": "/Nasfame/order-pro/static/js/runtime-main.0c122c28.js",
-    "runtime-main.js.map": "/Nasfame/order-pro/static/js/runtime-main.0c122c28.js.map",
-    "static/css/2.675d0889.chunk.css": "/Nasfame/order-pro/static/css/2.675d0889.chunk.css",
-    "static/js/2.518388f4.chunk.js": "/Nasfame/order-pro/static/js/2.518388f4.chunk.js",
-    "static/js/2.518388f4.chunk.js.map": "/Nasfame/order-pro/static/js/2.518388f4.chunk.js.map",
-    "static/js/3.5691d363.chunk.js": "/Nasfame/order-pro/static/js/3.5691d363.chunk.js",
-    "static/js/3.5691d363.chunk.js.map": "/Nasfame/order-pro/static/js/3.5691d363.chunk.js.map",
-    "index.html": "/Nasfame/order-pro/index.html",
-    "static/css/2.675d0889.chunk.css.map": "/Nasfame/order-pro/static/css/2.675d0889.chunk.css.map",
-    "static/css/main.41aafe91.chunk.css.map": "/Nasfame/order-pro/static/css/main.41aafe91.chunk.css.map",
-    "static/js/2.518388f4.chunk.js.LICENSE.txt": "/Nasfame/order-pro/static/js/2.518388f4.chunk.js.LICENSE.txt",
-    "static/media/styles.scss": "/Nasfame/order-pro/static/media/refresh.f8bfbff8.svg"
+    "main.css": "/order-pro/static/css/main.6a44b575.chunk.css",
+    "main.js": "/order-pro/static/js/main.01a7e492.chunk.js",
+    "main.js.map": "/order-pro/static/js/main.01a7e492.chunk.js.map",
+    "runtime-main.js": "/order-pro/static/js/runtime-main.05b05d69.js",
+    "runtime-main.js.map": "/order-pro/static/js/runtime-main.05b05d69.js.map",
+    "static/css/2.675d0889.chunk.css": "/order-pro/static/css/2.675d0889.chunk.css",
+    "static/js/2.518388f4.chunk.js": "/order-pro/static/js/2.518388f4.chunk.js",
+    "static/js/2.518388f4.chunk.js.map": "/order-pro/static/js/2.518388f4.chunk.js.map",
+    "static/js/3.5691d363.chunk.js": "/order-pro/static/js/3.5691d363.chunk.js",
+    "static/js/3.5691d363.chunk.js.map": "/order-pro/static/js/3.5691d363.chunk.js.map",
+    "index.html": "/order-pro/index.html",
+    "static/css/2.675d0889.chunk.css.map": "/order-pro/static/css/2.675d0889.chunk.css.map",
+    "static/css/main.6a44b575.chunk.css.map": "/order-pro/static/css/main.6a44b575.chunk.css.map",
+    "static/js/2.518388f4.chunk.js.LICENSE.txt": "/order-pro/static/js/2.518388f4.chunk.js.LICENSE.txt",
+    "static/media/styles.scss": "/order-pro/static/media/refresh.f8bfbff8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0c122c28.js",
+    "static/js/runtime-main.05b05d69.js",
     "static/css/2.675d0889.chunk.css",
     "static/js/2.518388f4.chunk.js",
-    "static/css/main.41aafe91.chunk.css",
+    "static/css/main.6a44b575.chunk.css",
     "static/js/main.01a7e492.chunk.js"
   ]
 }
