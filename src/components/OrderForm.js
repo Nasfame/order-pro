@@ -68,7 +68,7 @@ const OrderForm = ({ orderToEdit, handleOnSubmit, history }) => {
           </Form.Group>
           <Form.Group>
             <Form.Control
-              className='input-control'
+              className='icon-date input-control'
               type='date'
               value={order.date}
               placeholder='Date'
@@ -78,7 +78,7 @@ const OrderForm = ({ orderToEdit, handleOnSubmit, history }) => {
           </Form.Group>
           <Form.Group>
             <Form.Control
-              className='input-control icon-time'
+              className=' icon-time input-control'
               type='time'
               value={order.time}
               placeholder='Time'
@@ -100,7 +100,7 @@ const OrderForm = ({ orderToEdit, handleOnSubmit, history }) => {
             <Form.Control
               className='icon-hamburger input-control'
               value={order.customerDetails}
-              placeholder='Customer Details'
+              placeholder='  Customer Details'
               onChange={inputChange}
               type='text'
               name='customerDetails'

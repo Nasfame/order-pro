@@ -13,7 +13,7 @@ const OrderList = ({ history }) => {
       <Nav>
         <Dash Id='side-bar' Class='m-0 p-0' />
         <Link
-          Class='text-light border-white rounded px-4 py-1 mx-1 my-2'
+          Class='text-light border-white rounded py-1 mx-3 my-2'
           to='/login'>
           PUNCH OUT
         </Link>

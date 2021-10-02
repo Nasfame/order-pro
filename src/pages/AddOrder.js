@@ -8,7 +8,7 @@ const AddOrder = ({ history }) => {
   const handleOnSubmit = async (order) => {
     await setOrders([...orders, order])
     api('POST', order)
-    history.push('/')
+    history.push('/orders')
   }
 
   return (

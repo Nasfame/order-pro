@@ -26,7 +26,7 @@ const Dash = ({ history, Class, Id }) => {
       <Dropdown>
         <Dropdown.Toggle
           variant=''
-          className='icon-hamburger'></Dropdown.Toggle>
+          className='icon-hamburger p-3'></Dropdown.Toggle>
         <Dropdown.Menu className={Class} id={Id}>
           <Navbar
             bg='primary d-flex flex-column align-items-start py-0'

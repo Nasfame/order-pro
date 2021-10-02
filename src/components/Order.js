@@ -10,7 +10,7 @@ const Order = ({ order, handleRemoveOrder }) => {
       <Card.Body className='order-details'>
         <Div Class='d-flex justify-content-between'>
           <Card.Text className='d-inline'>{customerName}</Card.Text>
-          <Link Class='text-primary d-inline' to='/login'>
+          <Link Class='text-primary d-inline'>
             <b>View</b>
           </Link>
         </Div>
