@@ -15,13 +15,14 @@ const AppRouter = () => {
 
   useEffect(() => {
     api().then((res) => {
-      if (res.status !== 500) {
+      if (res.status != 500) {
         let data = res.data
+        console.log(data)
         setOrders(data)
       }
     })
-    console.log('PIA')
-  })
+    console.log('mount')
+  }, [])
 
   const handleLogin = (user, history) => {
     const { username, password } = user

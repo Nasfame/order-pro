@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 import { Div, Nav } from '.'
 
-const OrderForm = ({ orderToEdit, handleOnSubmit, history }) => {
+const OrderForm = ({ orderToEdit, handleOnSubmit }) => {
+  const history = useHistory()
   const [order, setOrder] = useState(
     orderToEdit ?? {
       id: '',

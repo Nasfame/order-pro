@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const api = (method = 'GET', body, params = null) => {
-  let url = 'http://localhost:3237/'
+  // let url = 'http://localhost:3237/order'
+  let url = 'https://pro-order.herokuapp.com/order'
   if (params) url += `/${params}`
   const options = {
     method,
@@ -13,13 +14,13 @@ const api = (method = 'GET', body, params = null) => {
     },
     data: body,
   }
-  // return axios(options)
-  return new Promise(
-    () => {},
-    () => {
-      console.log(1)
-    },
-  )
+  return axios(options)
+  // return new Promise(
+  //   () => {},
+  //   () => {
+  //     console.log(1)
+  //   },
+  // )
 }
 
 export default api
