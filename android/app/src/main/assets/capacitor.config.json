@@ -1,8 +1,8 @@
 {
 	"appId": "io.ionic.orderpro",
 	"appName": "orderpro",
-	"bundledWebRuntime": false,
+	"bundledWebRuntime": true,
 	"npmClient": "npm",
-	"webDir": "build",
+	"webDir": "docs",
 	"cordova": {}
 }

@@ -11,11 +11,7 @@ const AddOrder = ({ history }) => {
     history.push('/orders')
   }
 
-  return (
-    <>
-      <OrderForm handleOnSubmit={handleOnSubmit} history={history} />
-    </>
-  )
+  return <OrderForm handleOnSubmit={handleOnSubmit} history={history} />
 }
 
 export default AddOrder

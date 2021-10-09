@@ -3,6 +3,6 @@
     "appName": "orderpro",
     "bundledWebRuntime": false,
     "npmClient": "npm",
-    "webDir": "build",
+    "webDir": "docs",
     "cordova": {}
   }

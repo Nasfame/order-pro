@@ -198,8 +198,10 @@ h1 {
 }
 
 // Does not create the dropdown
-*,
-:before,
-:after {
-  transform: none !important;
+
+.fileInput {
+  cursor: pointer;
+  opacity: 0;
+  -moz-opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
 }

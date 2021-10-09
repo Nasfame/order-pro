@@ -15,7 +15,13 @@ const EditOrder = ({ history }) => {
     history.push('/')
   }
 
-  return <OrderForm orderToEdit={orderToEdit} handleOnSubmit={handleOnSubmit} />
+  return (
+    <OrderForm
+      orderToEdit={orderToEdit}
+      handleOnSubmit={handleOnSubmit}
+      history={history}
+    />
+  )
 }
 
 export default EditOrder

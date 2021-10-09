@@ -1,10 +1,31 @@
 import { useState } from 'react'
-import { Form, Button } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
+import { Form, Button, Modal } from 'react-bootstrap'
 import { Div, Nav } from '.'
 
-const OrderForm = ({ orderToEdit, handleOnSubmit }) => {
-  const history = useHistory()
+const Items = () => {
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+  return (
+    <Modal show={show} onHide={handleClose} backdrop='static' keyboard={false}>
+      <Modal.Header closeButton>
+        <Modal.Title>Modal title</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        I will not close if you click outside me. Don't even try to press escape
+        key.
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant='secondary' onClick={handleClose}>
+          Close
+        </Button>
+        <Button variant='primary'>Understood</Button>
+      </Modal.Footer>
+    </Modal>
+  )
+}
+
+const OrderForm = ({ orderToEdit, handleOnSubmit, history }) => {
   const [order, setOrder] = useState(
     orderToEdit ?? {
       id: '',
@@ -108,13 +129,19 @@ const OrderForm = ({ orderToEdit, handleOnSubmit }) => {
               name='customerDetails'
             />
           </Form.Group>
-          <Form.Group>
-            <Form.Label
-              className='icon-plus input-control py-2 px-3 text-primary'
-              // onClick = addProduct()
-            >
-              Add an item
-            </Form.Label>
+          <Form.Group className='icon-plus input-control'>
+            <Form.Control
+              className=' py-2 px-3 text-primary fileInput'
+              placeholder=' Add an item'
+              type='file'
+              ngf-select
+              ng-model='new_files'
+              ng-change='fs.uploadFiles(new_files)'
+              name='item'
+              multiple
+            />
+            <Form.Label>Add an item </Form.Label>
+            <Items />
           </Form.Group>
 
           <Form.Group>

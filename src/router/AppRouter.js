@@ -1,11 +1,11 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useLayoutEffect } from 'react'
 
 import { OrderContext } from '../context'
 import { api } from '../controllers'
 
 import { LoginForm, AddOrder, OrderList, EditOrder } from '../pages'
-import { Div, Dash } from '../components'
+import { Div } from '../components'
 
 import { useLocalStorage } from '../hooks'
 
@@ -13,7 +13,7 @@ const AppRouter = () => {
   const [orders, setOrders] = useLocalStorage('orders', [])
   const [login, setLogin] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     api().then((res) => {
       if (res.status != 500) {
         let data = res.data
@@ -22,7 +22,7 @@ const AppRouter = () => {
       }
     })
     console.log('mount')
-  }, [])
+  }, [setOrders])
 
   const handleLogin = (user, history) => {
     const { username, password } = user
