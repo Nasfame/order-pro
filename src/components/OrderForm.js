@@ -1,29 +1,7 @@
 import { useState } from 'react'
-import { Form, Button, Modal } from 'react-bootstrap'
-import { Div, Nav } from '.'
-
-const Items = () => {
-  const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
-  return (
-    <Modal show={show} onHide={handleClose} backdrop='static' keyboard={false}>
-      <Modal.Header closeButton>
-        <Modal.Title>Modal title</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        I will not close if you click outside me. Don't even try to press escape
-        key.
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant='secondary' onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant='primary'>Understood</Button>
-      </Modal.Footer>
-    </Modal>
-  )
-}
+import { Form, Button } from 'react-bootstrap'
+import { Div, Nav, Link } from '.'
+import Items from '../components/Items.js'
 
 const OrderForm = ({ orderToEdit, handleOnSubmit, history }) => {
   const [order, setOrder] = useState(
@@ -35,10 +13,11 @@ const OrderForm = ({ orderToEdit, handleOnSubmit, history }) => {
       discount: '',
       amount: '',
       time: '',
+      items: {},
     },
   )
   const [errorMsg, setErrorMsg] = useState('')
-
+  const [items, showItems] = useState(false)
   const onSubmit = (event) => {
     event.preventDefault()
     const values = Object.values(order)
@@ -62,20 +41,36 @@ const OrderForm = ({ orderToEdit, handleOnSubmit, history }) => {
       ...prevState,
       [name]: value,
     }))
+    console.log(order)
   }
 
   return (
     <>
-      <Nav Class='justify-content-between py-3'>
+      <Nav Class='justify-content-between py-3 px-2'>
         <Button
           className='icon-back'
           onClick={() => {
             history.goBack()
           }}></Button>
         <Div>ACCOUNT DETAILS</Div>
-        <Div />
+        {/* <Link Class='icon-cart' to='/cart' /> */}
+        <Button
+          variant='default'
+          className='icon-cart'
+          type='submit'
+          onClick={() => {
+            console.log(order.items)
+            history.push({
+              pathname: '/cart',
+              state: {
+                orders: JSON.stringify(order.items),
+              },
+            })
+          }}></Button>
       </Nav>
-
+      <>
+        <Items show={items} setShow={showItems} cartIt={inputChange} />
+      </>
       <Div Class='container-fluid justify-content-center align-items-center'>
         {errorMsg && <Div Class='errorMsg'>{errorMsg}</Div>}
         <Form onSubmit={onSubmit}>
@@ -130,18 +125,12 @@ const OrderForm = ({ orderToEdit, handleOnSubmit, history }) => {
             />
           </Form.Group>
           <Form.Group className='icon-plus input-control'>
-            <Form.Control
-              className=' py-2 px-3 text-primary fileInput'
-              placeholder=' Add an item'
-              type='file'
-              ngf-select
-              ng-model='new_files'
-              ng-change='fs.uploadFiles(new_files)'
-              name='item'
-              multiple
-            />
-            <Form.Label>Add an item </Form.Label>
-            <Items />
+            <Form.Label
+              onClick={() => {
+                showItems(true)
+              }}>
+              Add an Item
+            </Form.Label>
           </Form.Group>
 
           <Form.Group>

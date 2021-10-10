@@ -4,7 +4,7 @@ import { useEffect, useState, useLayoutEffect } from 'react'
 import { OrderContext } from '../context'
 import { api } from '../controllers'
 
-import { LoginForm, AddOrder, OrderList, EditOrder } from '../pages'
+import { LoginForm, AddOrder, OrderList, EditOrder, Cart } from '../pages'
 import { Div } from '../components'
 
 import { useLocalStorage } from '../hooks'
@@ -49,6 +49,7 @@ const AppRouter = () => {
               <Route component={OrderList} path='/orders' />
               <Route component={EditOrder} path='/edit/:id' />
               <Route component={LoginForm} path='/login' />
+              <Route component={Cart} path='/cart' />
               <Route path='*' component={() => <Redirect to='/' />} />
             </Switch>
           </OrderContext.Provider>
